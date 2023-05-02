@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
 
 const Navbar = () => {
@@ -37,22 +37,31 @@ const Navbar = () => {
         >
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
-              <Link to="/" className="block py-2 pl-3 pr-4 text-black">
+              <NavLink
+                id="linkNav"
+                to="/"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/blog" className="block py-2 pl-3 pr-4 text-black">
+              <NavLink
+                id="linkNav"
+                to="/blog"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
                 Blog
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
+                id="login"
                 to="/login"
                 className="block py-2 pl-3 pr-4 text-white bgyell"
               >
                 Login
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>

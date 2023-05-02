@@ -45,3 +45,13 @@ body {
   color: #969494;
   cursor: not-allowed;
 }
+
+#linkNav {
+  @apply block py-2 pl-3 pr-4 text-black;
+}
+
+.active {
+  text-decoration: underline;
+  color: #f9a51a !important;
+  background-color: inherit;
+}
