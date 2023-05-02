@@ -14,6 +14,7 @@ import gellary3 from "../../../assets/gallery-3.jpg";
 import gellary4 from "../../../assets/gallery-4.jpg";
 import gellary5 from "../../../assets/gallery-5.jpg";
 import gellary6 from "../../../assets/gallery-6.jpg";
+import Heading from "../../../Shared/Heading/Heading";
 
 const Home = () => {
   const chefData = useLoaderData();
@@ -56,12 +57,7 @@ const Home = () => {
       <section id="chef" className="chef">
         <div className="mycontainer">
           <div className="chefwrapper">
-            <div className="chefHeading text-center mb-14">
-              <h2 className="text-5xl font-bold text-white uppercase">
-                Our top chef
-              </h2>
-              <span className="block w-[150px] h-[5px] bgyell mx-auto my-3"></span>
-            </div>
+            <Heading>OUR TOP CHEF</Heading>
             <div className="chefContent grid grid-cols-3 gap-6">
               {chefData.map((chef) => (
                 <ChefCard key={chef.id} chef={chef}></ChefCard>
@@ -75,12 +71,7 @@ const Home = () => {
       {/* --Gellary area start--  */}
       <section id="gellary" className="gellary pt-24">
         <div className="mycontainer">
-          <div className="chefHeading text-center mb-14">
-            <h2 className="text-5xl font-bold text-white uppercase">
-              Our GALLERY
-            </h2>
-            <span className="block w-[150px] h-[5px] bgyell mx-auto my-3"></span>
-          </div>
+          <Heading>Our GALLERY</Heading>
           <div className="gellarywrapper grid grid-cols-3">
             <div className="gellaryImg">
               <img src={gellary1} alt="" />
