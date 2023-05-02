@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Heading from "../../../Shared/Heading/Heading";
+import { FaHeart } from "react-icons/fa";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
+import toast, { Toaster } from "react-hot-toast";
 
 const ChefDetails = () => {
   const chefDetailsData = useLoaderData();
+  const [heart, setHeart] = useState([]);
+
+  const handelHeart = (index) => {
+    const newIndex = [...heart, index];
+    setHeart(newIndex);
+    toast.success("Successfully added in favourite!");
+  };
 
   const {
     chef_picture,
@@ -12,6 +23,7 @@ const ChefDetails = () => {
     likes_num,
     num_recipes,
     years_of_experience,
+    recipes,
   } = chefDetailsData;
 
   return (
@@ -49,6 +61,73 @@ const ChefDetails = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="recepiDetails" className="recepiDetails">
+        <div className="mycontainer">
+          <div className="recepiWrapper">
+            <Heading>
+              {chef_name}'s <span className="textyell">recipes </span>
+            </Heading>
+          </div>
+          {recipes.map((resItem, index) => {
+            return (
+              <div key={index} className="recipesWrapper">
+                <div className="resLeft">
+                  <img src={resItem?.img} alt="images not found" />
+                </div>
+                <div className="resRight">
+                  <h3>{resItem?.name}</h3>
+                  <div className="ingradient">
+                    <h3>Ingredients: </h3>
+                    <span></span>
+                    <ul>
+                      {resItem?.ingredients.map((item, index) => {
+                        return (
+                          <li key={index}>
+                            {index + 1}. {item}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                  <div className="ingradient">
+                    <h3>Cooking method: </h3>
+                    <span></span>
+                    <ul>
+                      {resItem?.method.map((item, index) => {
+                        return (
+                          <li key={index}>
+                            {index + 1}. {item}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                  <div className="reting">
+                    <div className="ratingwrapper flex items-end gap-4">
+                      <Rating
+                        style={{ maxWidth: 140 }}
+                        value={Math.round(resItem?.rating)}
+                        readOnly
+                      />
+                      <p className="font-medium textyell">{resItem?.rating}</p>
+                    </div>
+                    <div className="favourite">
+                      <button
+                        disabled={heart.includes(index)}
+                        onClick={() => handelHeart(index)}
+                      >
+                        <FaHeart className="text-2xl heatIcon text-red-600 cursor-pointer"></FaHeart>
+                      </button>
+                      <Toaster />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
     </>

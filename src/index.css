@@ -39,3 +39,8 @@ body {
   border-radius: 25px;
   overflow: hidden;
 }
+
+.favourite button:disabled .heatIcon {
+  color: #969494;
+  cursor: not-allowed;
+}
