@@ -99,12 +99,7 @@ const Home = () => {
       {/* --feedback area start-- */}
       <section id="feedback" className="feedback py-20">
         <div className="mycontainer">
-          <div className="chefHeading text-center mb-14">
-            <h2 className="text-5xl font-bold text-white uppercase">
-              Reviews about us
-            </h2>
-            <span className="block w-[150px] h-[5px] bgyell mx-auto my-3"></span>
-          </div>
+          <Heading>Reviews about us</Heading>
           <div className="feedbackSlider">
             <Swiper
               slidesPerView={2}
