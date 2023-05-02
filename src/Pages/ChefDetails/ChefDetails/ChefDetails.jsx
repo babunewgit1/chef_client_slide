@@ -64,7 +64,7 @@ const ChefDetails = () => {
         </div>
       </section>
 
-      <section id="recepiDetails" className="recepiDetails">
+      <section id="recepiDetails" className="recepiDetails pb-20">
         <div className="mycontainer">
           <div className="recepiWrapper">
             <Heading>
@@ -73,39 +73,48 @@ const ChefDetails = () => {
           </div>
           {recipes.map((resItem, index) => {
             return (
-              <div key={index} className="recipesWrapper">
-                <div className="resLeft">
-                  <img src={resItem?.img} alt="images not found" />
+              <div
+                key={index}
+                className="recipesWrapper grid grid-cols-12 gap-6 mt-7"
+              >
+                <div className="resLeft col-span-5">
+                  <img
+                    className="block w-full h-full object-cover"
+                    src={resItem?.img}
+                    alt="images not found"
+                  />
                 </div>
-                <div className="resRight">
-                  <h3>{resItem?.name}</h3>
-                  <div className="ingradient">
-                    <h3>Ingredients: </h3>
-                    <span></span>
-                    <ul>
+                <div className="resRight col-span-7 p-6">
+                  <h3 className="text-3xl font-semibold textyell">
+                    {resItem?.name}
+                  </h3>
+                  <div className="ingradient mt-3">
+                    <h3 className="text-xl font-semibold">Ingredients : </h3>
+                    <span className="block w-[50px] h-[3px] bgyell"></span>
+                    <ul className="flex flex-wrap pl-3">
                       {resItem?.ingredients.map((item, index) => {
                         return (
-                          <li key={index}>
+                          <li className=" ml-3" key={index}>
                             {index + 1}. {item}
                           </li>
                         );
                       })}
                     </ul>
                   </div>
-                  <div className="ingradient">
-                    <h3>Cooking method: </h3>
-                    <span></span>
-                    <ul>
+                  <div className="ingradient mt-3">
+                    <h3 className="text-xl font-semibold">Cooking method: </h3>
+                    <span className="block w-[50px] h-[3px] bgyell"></span>
+                    <ul className=" pl-3">
                       {resItem?.method.map((item, index) => {
                         return (
-                          <li key={index}>
+                          <li className=" ml-3 inline" key={index}>
                             {index + 1}. {item}
                           </li>
                         );
                       })}
                     </ul>
                   </div>
-                  <div className="reting">
+                  <div className="reting flex items-center justify-between">
                     <div className="ratingwrapper flex items-end gap-4">
                       <Rating
                         style={{ maxWidth: 140 }}
