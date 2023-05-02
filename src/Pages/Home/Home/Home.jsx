@@ -57,7 +57,9 @@ const Home = () => {
       <section id="chef" className="chef">
         <div className="mycontainer">
           <div className="chefwrapper">
-            <Heading>OUR TOP CHEF</Heading>
+            <Heading>
+              OUR <span className="textyell">TOP CHEF</span>
+            </Heading>
             <div className="chefContent grid grid-cols-3 gap-6">
               {chefData.map((chef) => (
                 <ChefCard key={chef.id} chef={chef}></ChefCard>
@@ -71,7 +73,9 @@ const Home = () => {
       {/* --Gellary area start--  */}
       <section id="gellary" className="gellary pt-24">
         <div className="mycontainer">
-          <Heading>Our GALLERY</Heading>
+          <Heading>
+            Our <span className="textyell">GALLERY</span>
+          </Heading>
           <div className="gellarywrapper grid grid-cols-3">
             <div className="gellaryImg">
               <img src={gellary1} alt="" />
@@ -99,7 +103,9 @@ const Home = () => {
       {/* --feedback area start-- */}
       <section id="feedback" className="feedback py-20">
         <div className="mycontainer">
-          <Heading>Reviews about us</Heading>
+          <Heading>
+            Reviews <span className="textyell">about us</span>
+          </Heading>
           <div className="feedbackSlider">
             <Swiper
               slidesPerView={2}

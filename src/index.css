@@ -22,3 +22,20 @@ body {
 .bgyell {
   background-color: #f9a51a;
 }
+
+.chefRight p {
+  font-size: 20px;
+  margin-top: 15px;
+  color: #f9a51a;
+}
+
+.chefRight p span {
+  color: #fff;
+}
+
+.chefbannar {
+  box-shadow: rgba(255, 255, 255, 0.5) 0px 30px 60px -12px inset,
+    rgba(255, 255, 255, 0.5) 0px 18px 36px -18px inset;
+  border-radius: 25px;
+  overflow: hidden;
+}
