@@ -1,8 +1,10 @@
 import React from "react";
 import { FaThumbsUp, FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ChefCard = ({ chef }) => {
   const {
+    id,
     chef_picture,
     chef_name,
     years_of_experience,
@@ -38,8 +40,13 @@ const ChefCard = ({ chef }) => {
             <span className="textyell font-medium">{likes_num}</span>
           </p>
         </div>
-        <button className="flex items-center justify-between text-white bgyell w-full px-5 py-3 mt-8">
-          View Recipes <FaArrowRight></FaArrowRight>
+        <button className="text-white bgyell w-full px-5 py-3 mt-8">
+          <Link
+            className="flex items-center justify-between"
+            to={`/chef/${id}`}
+          >
+            View Recipes <FaArrowRight></FaArrowRight>
+          </Link>
         </button>
       </div>
     </div>

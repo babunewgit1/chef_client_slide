@@ -19,8 +19,6 @@ const Home = () => {
   const chefData = useLoaderData();
   const [feedback, setFeedback] = useState([]);
 
-  console.log(chefData);
-
   useEffect(() => {
     fetch("http://localhost:5000/feedback")
       .then((res) => res.json())
