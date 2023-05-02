@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import dish from "../../../assets/dish.png";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import ChefCard from "../ChefCard/ChefCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -15,10 +15,12 @@ import gellary4 from "../../../assets/gallery-4.jpg";
 import gellary5 from "../../../assets/gallery-5.jpg";
 import gellary6 from "../../../assets/gallery-6.jpg";
 import Heading from "../../../Shared/Heading/Heading";
+import Spinner from "../../../Shared/Spiner/Spinner";
 
 const Home = () => {
   const chefData = useLoaderData();
   const [feedback, setFeedback] = useState([]);
+  const navigation = useNavigation();
 
   useEffect(() => {
     fetch("http://localhost:5000/feedback")
@@ -60,6 +62,9 @@ const Home = () => {
             <Heading>
               OUR <span className="textyell">TOP CHEF</span>
             </Heading>
+
+            {navigation.state === "loading" && <Spinner></Spinner>}
+
             <div className="chefContent grid grid-cols-3 gap-6">
               {chefData.map((chef) => (
                 <ChefCard key={chef.id} chef={chef}></ChefCard>
