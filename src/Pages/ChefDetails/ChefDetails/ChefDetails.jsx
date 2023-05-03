@@ -5,6 +5,7 @@ import { FaHeart } from "react-icons/fa";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import toast, { Toaster } from "react-hot-toast";
+import LazyLoad from "react-lazy-load";
 
 const ChefDetails = () => {
   const chefDetailsData = useLoaderData();
@@ -35,11 +36,13 @@ const ChefDetails = () => {
           </Heading>
           <div className="chefbannar grid grid-cols-12 gap-7 items-center">
             <div className="chefleft col-span-5">
-              <img
-                className="w-full h-[500px] object-cover object-center"
-                src={chef_picture}
-                alt={chef_name}
-              />
+              <LazyLoad>
+                <img
+                  className="w-full h-[500px] object-cover object-center"
+                  src={chef_picture}
+                  alt={chef_name}
+                />
+              </LazyLoad>
             </div>
             <div className="chefRight col-span-7 ">
               <h2 className="text-4xl font-semibold textyell">
@@ -78,11 +81,13 @@ const ChefDetails = () => {
                 className="recipesWrapper grid grid-cols-12 gap-6 mt-7"
               >
                 <div className="resLeft col-span-5">
-                  <img
-                    className="block w-full h-full object-cover"
-                    src={resItem?.img}
-                    alt="images not found"
-                  />
+                  <LazyLoad>
+                    <img
+                      className="block w-full h-full object-cover"
+                      src={resItem?.img}
+                      alt="images not found"
+                    />
+                  </LazyLoad>
                 </div>
                 <div className="resRight col-span-7 p-6">
                   <h3 className="text-3xl font-semibold textyell">

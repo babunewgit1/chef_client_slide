@@ -16,6 +16,7 @@ import gellary5 from "../../../assets/gallery-5.jpg";
 import gellary6 from "../../../assets/gallery-6.jpg";
 import Heading from "../../../Shared/Heading/Heading";
 import Spinner from "../../../Shared/Spiner/Spinner";
+import LazyLoad from "react-lazy-load";
 
 const Home = () => {
   const chefData = useLoaderData();
@@ -83,22 +84,34 @@ const Home = () => {
           </Heading>
           <div className="gellarywrapper grid grid-cols-3">
             <div className="gellaryImg">
-              <img src={gellary1} alt="" />
+              <LazyLoad>
+                <img src={gellary1} alt="" />
+              </LazyLoad>
             </div>
             <div className="gellaryImg">
-              <img src={gellary2} alt="" />
+              <LazyLoad>
+                <img src={gellary2} alt="" />
+              </LazyLoad>
             </div>
             <div className="gellaryImg">
-              <img src={gellary3} alt="" />
+              <LazyLoad>
+                <img src={gellary3} alt="" />
+              </LazyLoad>
             </div>
             <div className="gellaryImg">
-              <img src={gellary4} alt="" />
+              <LazyLoad>
+                <img src={gellary4} alt="" />
+              </LazyLoad>
             </div>
             <div className="gellaryImg">
-              <img src={gellary5} alt="" />
+              <LazyLoad>
+                <img src={gellary5} alt="" />
+              </LazyLoad>
             </div>
             <div className="gellaryImg">
-              <img src={gellary6} alt="" />
+              <LazyLoad>
+                <img src={gellary6} alt="" />
+              </LazyLoad>
             </div>
           </div>
         </div>

@@ -81,3 +81,13 @@ body {
 .formBox input {
   color: #000;
 }
+
+.LazyLoad {
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+.is-visible {
+  opacity: 1;
+  height: 100%;
+}
