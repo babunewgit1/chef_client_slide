@@ -16,6 +16,7 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         setSuccess("Login successfull");
+        form.reset();
       })
       .catch((error) => {
         setError(error.message);
@@ -79,7 +80,7 @@ const Login = () => {
               />
             </div>
             {user || error ? (
-              <div className="message">
+              <div className="message mt-3">
                 <p className="text-green-500">{success}</p>
                 <p className="text-red-600">{error}</p>
               </div>

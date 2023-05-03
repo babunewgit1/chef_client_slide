@@ -1,16 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Heading from "../../Shared/Heading/Heading";
 import { MyContext } from "../../AuthProvidor/AuthProvidor";
 import { updateProfile } from "firebase/auth";
 const Register = () => {
   const { customregister } = useContext(MyContext);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const handelRegister = (e) => {
     e.preventDefault();
+    setError("");
+    setSuccess("");
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
+
+    if (!email || !password) {
+      setError("Email and Password can not be empty");
+      return;
+    }
+
+    if (password.length < 6) {
+      setError("Password can not be less then 6 characters");
+      return;
+    }
 
     customregister(email, password)
       .then((user) => {
@@ -19,6 +33,8 @@ const Register = () => {
           displayName: name,
           photoURL: photo,
         });
+        setSuccess("Sign up successfull");
+        form.reset();
       })
       .catch((error) => {
         console.log(error);
@@ -76,6 +92,10 @@ const Register = () => {
                 name="photo"
                 placeholder="Photo URL"
               />
+            </div>
+            <div className="message mt-3">
+              <p className="text-green-500">{success}</p>
+              <p className="text-red-600">{error}</p>
             </div>
             <button
               className="bgyell w-full block mt-10 py-3 font-semibold"
