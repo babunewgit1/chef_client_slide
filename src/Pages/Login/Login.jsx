@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Heading from "../../Shared/Heading/Heading";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MyContext } from "../../AuthProvidor/AuthProvidor";
 
 const Login = () => {
@@ -9,14 +9,17 @@ const Login = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState(null);
   const { googleSignIn, githubSingIn, customSignIn } = useContext(MyContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const googleLogin = () => {
     setSuccess("");
     setError("");
     googleSignIn()
-      .then((result) => {
+      .then(() => {
         setSuccess("Login successfull");
-        form.reset();
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
@@ -25,8 +28,9 @@ const Login = () => {
 
   const githublogin = () => {
     githubSingIn()
-      .then((result) => {
+      .then(() => {
         setSuccess("Login successfull");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
@@ -43,6 +47,8 @@ const Login = () => {
     customSignIn(email, password)
       .then(() => {
         setSuccess("Login successfull");
+        form.reset();
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);

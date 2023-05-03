@@ -2,10 +2,15 @@ import React, { useContext, useState } from "react";
 import Heading from "../../Shared/Heading/Heading";
 import { MyContext } from "../../AuthProvidor/AuthProvidor";
 import { updateProfile } from "firebase/auth";
+import { useLocation, useNavigate } from "react-router-dom";
 const Register = () => {
   const { customregister } = useContext(MyContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const handelRegister = (e) => {
     e.preventDefault();
     setError("");
@@ -34,6 +39,7 @@ const Register = () => {
           photoURL: photo,
         });
         setSuccess("Sign up successfull");
+        navigate(from, { replace: true });
         form.reset();
       })
       .catch((error) => {
