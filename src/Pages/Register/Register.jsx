@@ -43,7 +43,7 @@ const Register = () => {
         form.reset();
       })
       .catch((error) => {
-        console.log(error);
+        setError(error.message);
       });
   };
   return (
@@ -52,7 +52,7 @@ const Register = () => {
         <div className="loginWrapper">
           <Heading>Register</Heading>
         </div>
-        <div className="formwrapper w-1/2 bg-white mx-auto p-7 rounded-md">
+        <div className="formwrapper lg:w-1/2 bg-white mx-auto p-7 rounded-md">
           <form onSubmit={handelRegister}>
             <div className="formBox">
               <label className="block text-black font-semibold mb-3">

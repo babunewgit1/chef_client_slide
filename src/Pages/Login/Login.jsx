@@ -60,7 +60,7 @@ const Login = () => {
         <div className="loginWrapper">
           <Heading>Login</Heading>
         </div>
-        <div className="formwrapper w-1/2 bg-white mx-auto p-7 rounded-md">
+        <div className="formwrapper lg:w-1/2 bg-white mx-auto p-7 rounded-md">
           <form onSubmit={handelSignIn}>
             <div className="formBox">
               <label className="block text-black font-semibold mb-3">

@@ -18,8 +18,6 @@ const Navbar = () => {
       });
   };
 
-  console.log(user);
-
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 py-4">
       <div className="mycontainer flex flex-wrap items-center justify-between mx-auto p-4">
@@ -51,7 +49,7 @@ const Navbar = () => {
           className={`w-full md:block md:w-auto ${!hidden && "hidden"}`}
           id="navbar-default"
         >
-          <ul className="font-medium flex items-center flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="font-medium flex md:items-center flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <NavLink
                 id="linkNav"
@@ -79,13 +77,15 @@ const Navbar = () => {
                       src={user?.photoURL}
                       alt=""
                     />
-                    <p className="absolute bgyell text-white whitespace-nowrap p-2 px-4 rounded-sm hoverpara">
-                      {user?.displayName}
-                    </p>
+                    {user?.displayName && (
+                      <p className="absolute bgyell text-white whitespace-nowrap p-2 px-4 rounded-sm hoverpara">
+                        {user?.displayName}
+                      </p>
+                    )}
                   </div>
                   <button
                     onClick={handelSignout}
-                    className="block py-2 pl-3 pr-4 text-white bgyell"
+                    className="block py-2 pl-3 pr-4 ml-8 text-white bgyell"
                   >
                     Logout
                   </button>

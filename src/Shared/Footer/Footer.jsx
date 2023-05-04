@@ -7,11 +7,11 @@ const Footer = () => {
   return (
     <section id="footer" className="footer bg-white py-6">
       <div className="mycontainer">
-        <div className="footerWrapper flex items-center justify-between text-black">
-          <div className="footerLeft">
+        <div className="footerWrapper md:flex md:items-center justify-between text-black">
+          <div className="footerLeft text-center md:text-left">
             <Logo></Logo>
           </div>
-          <div className="footerMiddle">
+          <div className="footerMiddle my-5 md:my-0">
             <ul className="flex items-center justify-center gap-3">
               <li>
                 <a href="#" target="_blank">
@@ -35,7 +35,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="footerRight">
+          <div className="footerRight text-center md:text-left">
             <p>© 2023 USA chefs. All Rights Reserved.</p>
           </div>
         </div>

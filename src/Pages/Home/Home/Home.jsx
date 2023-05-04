@@ -24,7 +24,7 @@ const Home = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    fetch("http://localhost:5000/feedback")
+    fetch("https://chefs-server-side-babuhp80-gmailcom.vercel.app/feedback")
       .then((res) => res.json())
       .then((data) => setFeedback(data));
   }, []);
@@ -34,11 +34,11 @@ const Home = () => {
       {/* --bannar area start-- */}
       <section id="bannar" className="bannar py-14">
         <div className="mycontainer">
-          <div className="bannarWrapper flex items-center gap-8">
-            <div className="bannarRight w-1/2">
+          <div className="bannarWrapper md:flex md:items-center gap-8">
+            <div className="bannarRight md:w-1/2">
               <img className="block w-full" src={dish} alt="images not found" />
             </div>
-            <div className="bannarLeft w-1/2 text-right">
+            <div className="bannarLeft md:w-1/2 md:text-right mt-5 md:mt-0">
               <h2 className="text-4xl font-bold textyell">
                 We do not cook, we create your emotions!
               </h2>
@@ -66,7 +66,7 @@ const Home = () => {
 
             {navigation.state === "loading" && <Spinner></Spinner>}
 
-            <div className="chefContent grid grid-cols-3 gap-6">
+            <div className="chefContent  md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6">
               {chefData.map((chef) => (
                 <ChefCard key={chef.id} chef={chef}></ChefCard>
               ))}
@@ -82,33 +82,33 @@ const Home = () => {
           <Heading>
             Our <span className="textyell">GALLERY</span>
           </Heading>
-          <div className="gellarywrapper grid grid-cols-3">
-            <div className="gellaryImg">
+          <div className="gellarywrapper md:grid md:grid-cols-3">
+            <div className="gellaryImg mb-3">
               <LazyLoad>
                 <img src={gellary1} alt="" />
               </LazyLoad>
             </div>
-            <div className="gellaryImg">
+            <div className="gellaryImg mb-3">
               <LazyLoad>
                 <img src={gellary2} alt="" />
               </LazyLoad>
             </div>
-            <div className="gellaryImg">
+            <div className="gellaryImg mb-3">
               <LazyLoad>
                 <img src={gellary3} alt="" />
               </LazyLoad>
             </div>
-            <div className="gellaryImg">
+            <div className="gellaryImg mb-3">
               <LazyLoad>
                 <img src={gellary4} alt="" />
               </LazyLoad>
             </div>
-            <div className="gellaryImg">
+            <div className="gellaryImg mb-3">
               <LazyLoad>
                 <img src={gellary5} alt="" />
               </LazyLoad>
             </div>
-            <div className="gellaryImg">
+            <div className="gellaryImg mb-3">
               <LazyLoad>
                 <img src={gellary6} alt="" />
               </LazyLoad>
@@ -126,6 +126,28 @@ const Home = () => {
           </Heading>
           <div className="feedbackSlider">
             <Swiper
+              breakpoints={{
+                320: {
+                  width: 320,
+                  slidesPerView: 1,
+                },
+                577: {
+                  width: 500,
+                  slidesPerView: 1,
+                },
+                768: {
+                  width: 680,
+                  slidesPerView: 2,
+                },
+                992: {
+                  width: 992,
+                  slidesPerView: 2,
+                },
+                1152: {
+                  width: 1100,
+                  slidesPerView: 2,
+                },
+              }}
               slidesPerView={2}
               spaceBetween={60}
               autoplay={{ delay: 3000 }}

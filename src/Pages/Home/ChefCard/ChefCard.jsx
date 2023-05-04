@@ -13,7 +13,7 @@ const ChefCard = ({ chef }) => {
     likes_num,
   } = chef;
   return (
-    <div className=" bg-slate-950 text-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className=" bg-slate-950 mb-5 md:mb-0 text-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="cardImg">
         <LazyLoad>
           <img

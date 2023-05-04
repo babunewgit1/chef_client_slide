@@ -6,6 +6,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivetRoute from "./PrivetRoute";
+import Blog from "../Pages/Blog/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/main"),
+        loader: () =>
+          fetch("https://chefs-server-side-babuhp80-gmailcom.vercel.app/main"),
       },
       {
         path: "/chef/:id",
@@ -26,7 +28,13 @@ const router = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/main/${params.id}`),
+          fetch(
+            `https://chefs-server-side-babuhp80-gmailcom.vercel.app/main/${params.id}`
+          ),
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
       {
         path: "/login",

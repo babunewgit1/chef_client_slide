@@ -34,7 +34,7 @@ const ChefDetails = () => {
           <Heading>
             About <span className="textyell">{chef_name}</span>
           </Heading>
-          <div className="chefbannar grid grid-cols-12 gap-7 items-center">
+          <div className="chefbannar md:grid grid-cols-12 gap-7 items-center">
             <div className="chefleft col-span-5">
               <LazyLoad>
                 <img
@@ -44,7 +44,7 @@ const ChefDetails = () => {
                 />
               </LazyLoad>
             </div>
-            <div className="chefRight col-span-7 ">
+            <div className="chefRight col-span-7 p-5 ">
               <h2 className="text-4xl font-semibold textyell">
                 Name : <span className="text-white">{chef_name}</span>
               </h2>
@@ -78,7 +78,7 @@ const ChefDetails = () => {
             return (
               <div
                 key={index}
-                className="recipesWrapper grid grid-cols-12 gap-6 mt-7"
+                className="recipesWrapper md:grid grid-cols-12 gap-6 mt-7"
               >
                 <div className="resLeft col-span-5">
                   <LazyLoad>
