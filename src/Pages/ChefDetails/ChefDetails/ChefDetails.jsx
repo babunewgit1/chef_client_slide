@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import Heading from "../../../Shared/Heading/Heading";
 import { FaHeart } from "react-icons/fa";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import toast, { Toaster } from "react-hot-toast";
 import LazyLoad from "react-lazy-load";
+import Spinner from "../../../Shared/Spiner/Spinner";
 
 const ChefDetails = () => {
   const chefDetailsData = useLoaderData();
   const [heart, setHeart] = useState([]);
+  const navigation = useNavigation();
 
   const handelHeart = (index) => {
     const newIndex = [...heart, index];
@@ -29,6 +31,7 @@ const ChefDetails = () => {
 
   return (
     <>
+      {navigation.state === "loading" && <Spinner></Spinner>}
       <section id="chefDetails" className="chefDetails py-24">
         <div className="mycontainer">
           <Heading>
